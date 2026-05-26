@@ -1,0 +1,9 @@
+[
+  {
+    "id": "f2d10e15-a3e3-4ad4-b21c-5ec9fa0ff5a9",
+    "type": "TX_REQUESTED",
+    "amount": 250000,
+    "sender": "b7f8602d-48ca-4bdc-b357-3a1576deccff",
+    "receiver": "OMEGA_ROUTING"
+  }
+]

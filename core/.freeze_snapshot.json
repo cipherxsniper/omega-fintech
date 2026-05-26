@@ -1,0 +1,23 @@
+{
+  "hash": "5c582645f5e084f6aed7f23b4bd5a5a80b92d050b42cc26e957e430a0fd82316",
+  "snapshot": {
+    "LedgerEngine": {
+      "class": "LedgerEngine",
+      "methods": {
+        "__init__": "(self)",
+        "_init": "(self)",
+        "append": "(self, event)",
+        "get_all": "(self)"
+      }
+    },
+    "IdempotencyStore": {
+      "class": "IdempotencyStore",
+      "methods": {
+        "__init__": "(self)",
+        "_init": "(self)",
+        "exists": "(self, key)",
+        "mark": "(self, key)"
+      }
+    }
+  }
+}

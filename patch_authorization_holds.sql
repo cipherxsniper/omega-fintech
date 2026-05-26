@@ -1,0 +1,11 @@
+
+ALTER TABLE authorization_holds
+
+ADD COLUMN IF NOT EXISTS merchant_name TEXT,
+
+ADD COLUMN IF NOT EXISTS currency TEXT NOT NULL DEFAULT 'USD',
+
+ADD COLUMN IF NOT EXISTS external_reference TEXT,
+
+ADD COLUMN IF NOT EXISTS updated_at TIMESTAMP NOT NULL DEFAULT now();
+

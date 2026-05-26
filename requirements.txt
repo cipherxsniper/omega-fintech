@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+sqlalchemy
+psycopg2-binary
+pydantic
+python-jose
+passlib
+bcrypt
+redis
+kafka-python
+asyncpg
+alembic
+prometheus-client

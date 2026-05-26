@@ -1,0 +1,15 @@
+-- DISABLE DIRECT BALANCE MUTATION PATH
+
+CREATE OR REPLACE FUNCTION block_wallet_direct_update()
+RETURNS trigger AS $$
+BEGIN
+    RAISE EXCEPTION 'DIRECT WALLET MUTATION DISABLED — USE EVENT LEDGER';
+END;
+$$ LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS block_wallet_update ON wallets;
+
+CREATE TRIGGER block_wallet_update
+BEFORE UPDATE ON wallets
+FOR EACH ROW
+EXECUTE FUNCTION block_wallet_direct_update();

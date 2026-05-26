@@ -1,0 +1,17 @@
+[OMEGA] EXECUTION PIPELINE ONLINE
+Traceback (most recent call last):
+  File "/data/data/com.termux/files/home/Omega-Production/omega_bank/omega_execution_worker.py", line 133, in <module>
+    main()
+    ~~~~^^
+  File "/data/data/com.termux/files/home/Omega-Production/omega_bank/omega_execution_worker.py", line 105, in main
+    with db() as conn:
+         ~~^^
+  File "/data/data/com.termux/files/usr/lib/python3.13/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/data/data/com.termux/files/home/Omega-Production/omega_bank/omega_execution_worker.py", line 17, in db
+    conn = psycopg2.connect(**DB)
+  File "/data/data/com.termux/files/usr/lib/python3.13/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+

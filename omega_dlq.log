@@ -1,0 +1,6 @@
+{"event": {"exec_id": "65a742c0-5a22-4d17-af48-23a9d2686ef3", "mode": "SHELL", "cmd": "ls -la omega_banking_core_v7.py"}, "reason": "INVALID_EVENT", "timestamp": 1779562035.1297333}
+{"event": {"exec_id": "1b79f0f8-079d-4252-9910-43721532d779", "mode": "SHELL", "cmd": "ls -la omega_event_bus.py"}, "reason": "INVALID_EVENT", "timestamp": 1779562035.1304517}
+{"event": {"exec_id": "e23fa0d8-8d80-4651-ab89-f47fb92fe586", "mode": "SHELL", "cmd": "ls -la omega_state_machine.py"}, "reason": "INVALID_EVENT", "timestamp": 1779562035.1308832}
+{"event": {"exec_id": "eceb2d8b-3db5-422c-90f5-c698fdc3fc88", "mode": "SHELL", "cmd": "ls -la omega_execution_queues.py"}, "reason": "INVALID_EVENT", "timestamp": 1779562035.7023344}
+{"event": {"exec_id": "4a75ef3a-5428-4475-a1c1-774fa59c4516", "mode": "SQL", "cmd": "SELECT * FROM omega_proof_of_reserves;"}, "reason": "INVALID_EVENT", "timestamp": 1779562105.5838208}
+{"event": {"exec_id": "c9b1079c-1e5f-4c64-99a7-e9ca8ed3da8c", "mode": "SQL_WRITE", "cmd": "UPDATE wallets SET settled_balance = settled_balance + 1;"}, "reason": "INVALID_EVENT", "timestamp": 1779562181.278255}

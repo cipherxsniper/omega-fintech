@@ -1,0 +1,5 @@
+nohup: ignoring input
+Traceback (most recent call last):
+  File "/data/data/com.termux/files/home/Omega-Production/omega_bank/workers/event_worker.py", line 6, in <module>
+    from core.omega_ledger import ledger
+ModuleNotFoundError: No module named 'core'

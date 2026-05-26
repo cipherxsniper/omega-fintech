@@ -1,0 +1,82 @@
+[
+  {
+    "lead_id": "52070a9e-3bbc-4618-b6f0-3961434f561a",
+    "business_name": "Acme Roofing",
+    "email": "owner@acmeroofing.com",
+    "niche": "roofing",
+    "status": "NEW",
+    "created_at": "2026-05-26T02:33:59.997469+00:00"
+  },
+  {
+    "lead_id": "2c25c872-c270-464e-b26b-9198a11fb5cc",
+    "business_name": "Acme Roofing",
+    "email": "owner@acmeroofing.com",
+    "niche": "roofing",
+    "status": "NEW",
+    "created_at": "2026-05-26T02:34:42.050962+00:00"
+  },
+  {
+    "lead_id": "fa04838a-fc56-461d-9045-396c4b15adf8",
+    "business_name": "Acme Roofing",
+    "email": "owner@acmeroofing.com",
+    "niche": "roofing",
+    "status": "NEW",
+    "created_at": "2026-05-26T02:35:21.200318+00:00"
+  },
+  {
+    "lead_id": "8d96a6a2-d1d0-4a72-91a9-7e082c57dd9c",
+    "business_name": "Acme Roofing",
+    "email": "owner@acmeroofing.com",
+    "niche": "roofing",
+    "status": "NEW",
+    "created_at": "2026-05-26T02:36:27.982425+00:00"
+  },
+  {
+    "lead_id": "14d45801-05a2-454e-9678-9ed9e1f6b1ac",
+    "business_name": "Acme Roofing",
+    "email": "owner@acmeroofing.com",
+    "niche": "roofing",
+    "status": "NEW",
+    "created_at": "2026-05-26T02:40:51.569439+00:00"
+  },
+  {
+    "lead_id": "e639b726-2fea-4939-97a8-e52d702a9a00",
+    "business_name": "Acme Roofing",
+    "email": "owner@acmeroofing.com",
+    "niche": "roofing",
+    "status": "NEW",
+    "created_at": "2026-05-26T02:42:07.493080+00:00"
+  },
+  {
+    "lead_id": "f2dd9c88-a3c8-4286-b05b-9fa9ee62f74c",
+    "business_name": "Acme Roofing",
+    "email": "owner@acmeroofing.com",
+    "niche": "roofing",
+    "status": "NEW",
+    "created_at": "2026-05-26T02:42:47.743103+00:00"
+  },
+  {
+    "lead_id": "b4979c07-54a9-4f15-9607-ebce3936f8de",
+    "business_name": "Acme Roofing",
+    "email": "owner@acmeroofing.com",
+    "niche": "roofing",
+    "status": "NEW",
+    "created_at": "2026-05-26T02:43:29.275404+00:00"
+  },
+  {
+    "lead_id": "c0f90142-ed02-4350-bab7-acb7d9348c00",
+    "business_name": "Acme Roofing",
+    "email": "owner@acmeroofing.com",
+    "niche": "roofing",
+    "status": "NEW",
+    "created_at": "2026-05-26T02:44:07.497904+00:00"
+  },
+  {
+    "lead_id": "dbf6dfd9-4196-47e7-947d-0e2115687365",
+    "business_name": "Acme Roofing",
+    "email": "owner@acmeroofing.com",
+    "niche": "roofing",
+    "status": "NEW",
+    "created_at": "2026-05-26T02:44:47.594164+00:00"
+  }
+]

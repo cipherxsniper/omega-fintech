@@ -1,0 +1,8 @@
+.env
+.env.*
+*.env
+omega_dump.txt
+__pycache__/
+*.pyc
+*.db-shm
+*.db-wal

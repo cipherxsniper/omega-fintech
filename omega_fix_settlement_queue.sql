@@ -1,0 +1,13 @@
+
+ALTER TABLE settlement_queue
+ADD COLUMN IF NOT EXISTS auth_id UUID;
+
+ALTER TABLE settlement_queue
+ADD COLUMN IF NOT EXISTS wallet_id UUID;
+
+ALTER TABLE settlement_queue
+ADD COLUMN IF NOT EXISTS amount NUMERIC(20,2);
+
+ALTER TABLE settlement_queue
+ADD COLUMN IF NOT EXISTS created_at TIMESTAMP DEFAULT NOW();
+

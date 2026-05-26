@@ -1,0 +1,139 @@
+[
+  {
+    "type": "WALLET_CREATED",
+    "wallet_id": "OMEGA-WALLET-CB07FC9F425B",
+    "telegram_user": "8620185302",
+    "linked_card": null,
+    "balance": 0.0,
+    "event_id": "8fe082b6-a202-4284-b943-5494f5b47ca0",
+    "written_at": "2026-05-25T23:57:26.913179+00:00"
+  },
+  {
+    "type": "TRANSFER_APPROVAL",
+    "payload": {
+      "from": "ACC-001",
+      "to": "ACC-002",
+      "amount": "500.00 USD"
+    },
+    "event_id": "0067f3d1-d147-4b50-aeb9-a4c45154929a",
+    "written_at": "2026-05-25T23:57:40.827168+00:00"
+  },
+  {
+    "type": "ORCHESTRATOR_RUN",
+    "snapshot": {
+      "snapshot_at": "2026-05-25T23:58:22.966825+00:00",
+      "event_count": 2,
+      "account_count": 3,
+      "total_value_usd": 500.0
+    },
+    "triggered": "2026-05-25T23:58:22.970787+00:00",
+    "event_id": "f4c4605e-eb08-4d9f-839f-43fd6d365fc8",
+    "written_at": "2026-05-25T23:58:22.971326+00:00"
+  },
+  {
+    "type": "ORCHESTRATOR_RUN",
+    "snapshot": {
+      "snapshot_at": "2026-05-25T23:59:18.975489+00:00",
+      "event_count": 3,
+      "account_count": 3,
+      "total_value_usd": 500.0
+    },
+    "triggered": "2026-05-25T23:59:18.977834+00:00",
+    "event_id": "41e1e3f0-2fd9-48ac-8f10-5dc614066246",
+    "written_at": "2026-05-25T23:59:18.978258+00:00"
+  },
+  {
+    "type": "CARD_ISSUED",
+    "network": "VISA",
+    "status": "ACTIVE",
+    "card_id": "OMGCARD-0E43A24C",
+    "wallet_id": "OMEGA-WALLET-CB07FC9F425B",
+    "created_at": "2026-05-26T00:00:01.847086+00:00",
+    "event_id": "a779c481-1309-47de-b263-39e2ca6a8ef6",
+    "written_at": "2026-05-26T00:00:01.847692+00:00"
+  },
+  {
+    "type": "CARD_LINKED_TO_WALLET",
+    "wallet_id": "OMEGA-WALLET-CB07FC9F425B",
+    "card_id": "OMGCARD-0E43A24C",
+    "linked_at": "2026-05-26T00:00:01.847086+00:00",
+    "event_id": "67965441-186f-4908-94de-f1fc16366883",
+    "written_at": "2026-05-26T00:00:01.848426+00:00"
+  },
+  {
+    "type": "TRANSFER_APPROVAL",
+    "payload": {
+      "from": "ACC-001",
+      "to": "ACC-002",
+      "amount": "1,000,000.00 USD"
+    },
+    "event_id": "e58f4d69-a49b-401e-b411-20d9413764bd",
+    "written_at": "2026-05-26T00:05:49.450124+00:00"
+  },
+  {
+    "type": "TRANSFER_APPROVAL",
+    "payload": {
+      "from": "OMEGA-WALLET-CB07FC9F425B",
+      "to": "OMEGA-WALLET-CB07FC9F425B",
+      "amount": "1,000,000.00 USD"
+    },
+    "event_id": "2bac2128-b77b-43ad-95b6-0fae553b6551",
+    "written_at": "2026-05-26T00:21:50.117277+00:00"
+  },
+  {
+    "type": "ORCHESTRATOR_RUN",
+    "snapshot": {
+      "snapshot_at": "2026-05-26T00:23:57.169701+00:00",
+      "event_count": 8,
+      "account_count": 3,
+      "total_value_usd": 1000500.0
+    },
+    "triggered": "2026-05-26T00:23:57.178641+00:00",
+    "event_id": "b921a912-ebdb-4193-9197-f2bb63f5a6ce",
+    "written_at": "2026-05-26T00:23:57.179589+00:00"
+  },
+  {
+    "type": "TRANSFER_APPROVAL",
+    "payload": {
+      "from": "OMEGA-WALLET-CB07FC9F425B",
+      "to": "OMEGA-WALLET-CB07FC9F425B",
+      "amount": "12,000,000.00 USD"
+    },
+    "event_id": "e9786ddf-0ef7-43a8-8f32-3dfdcdef847c",
+    "written_at": "2026-05-26T00:28:18.957569+00:00"
+  },
+  {
+    "type": "ORCHESTRATOR_RUN",
+    "snapshot": {
+      "snapshot_at": "2026-05-26T00:29:06.266630+00:00",
+      "event_count": 10,
+      "account_count": 3,
+      "total_value_usd": 1000500.0
+    },
+    "triggered": "2026-05-26T00:29:06.270703+00:00",
+    "event_id": "cab52fdb-23f0-4035-ad2f-e579b712eec6",
+    "written_at": "2026-05-26T00:29:06.271272+00:00"
+  },
+  {
+    "type": "ORCHESTRATOR_RUN",
+    "snapshot": {
+      "snapshot_at": "2026-05-26T00:43:20.052619+00:00",
+      "event_count": 11,
+      "account_count": 3,
+      "total_value_usd": 500.0
+    },
+    "triggered": "2026-05-26T00:43:20.056574+00:00",
+    "event_id": "4a27707e-6da7-4e85-bdce-ec62b7f6c391",
+    "written_at": "2026-05-26T00:43:20.057542+00:00"
+  },
+  {
+    "type": "TRANSFER_APPROVAL",
+    "payload": {
+      "from": "OMEGA-WALLET-CB07FC9F425B",
+      "to": "OMEGA-WALLET-CB07FC9F425B",
+      "amount": "1,200,000.00 USD"
+    },
+    "event_id": "73f74477-431f-42c5-a06f-835cb19dbd25",
+    "written_at": "2026-05-26T00:45:49.818561+00:00"
+  }
+]

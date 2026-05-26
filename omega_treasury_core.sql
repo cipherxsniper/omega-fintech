@@ -1,0 +1,35 @@
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+CREATE TABLE IF NOT EXISTS treasury_reserve (
+id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+name TEXT UNIQUE NOT NULL,
+total_capital NUMERIC(20,2) NOT NULL DEFAULT 0.00,
+allocated_credit NUMERIC(20,2) NOT NULL DEFAULT 0.00,
+frozen BOOLEAN DEFAULT FALSE,
+created_at TIMESTAMP DEFAULT NOW(),
+updated_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS credit_lines (
+wallet_id UUID PRIMARY KEY,
+credit_limit NUMERIC(20,2) NOT NULL DEFAULT 0.00,
+used_credit NUMERIC(20,2) NOT NULL DEFAULT 0.00,
+status TEXT DEFAULT 'ACTIVE',
+risk_score NUMERIC(10,2) DEFAULT 0.00,
+created_at TIMESTAMP DEFAULT NOW(),
+updated_at TIMESTAMP DEFAULT NOW()
+);
+
+INSERT INTO treasury_reserve (
+name,
+total_capital,
+allocated_credit
+)
+VALUES (
+'OMEGA_MAIN_RESERVE',
+1000000000.00,
+0.00
+)
+ON CONFLICT (name)
+DO NOTHING;
+
