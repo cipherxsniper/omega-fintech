@@ -152,3 +152,14 @@ event_bus = type("EventBusProxy", (), {
 
 if __name__ == "__main__":
     print("EVENT BUS READY")
+
+# === COMPATIBILITY LAYER ===
+def run():
+    """
+    Orchestrator entrypoint compatibility wrapper.
+    Maps legacy import 'run' to actual event bus execution.
+    """
+    try:
+        return main()
+    except NameError:
+        return start()
