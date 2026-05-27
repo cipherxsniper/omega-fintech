@@ -1,75 +1,42 @@
-#!/usr/bin/env python3
-"""
-OMEGA EVENT SOURCED LEDGER ENGINE
-- entries = source of truth
-- balances computed dynamically
-- no state mutation in accounts table
-"""
+# ================================
+# OMEGA EVENT LEDGER ENGINE
+# ================================
 
 import sqlite3
 
-DB = "omega_ledger.db"
+DB_PATH = "omega_ledger.db"
 
 
-def money(x):
-    try:
-        return float(x or 0)
-    except:
-        return 0.0
-
-
-def compute_balances(conn):
+def get_ledger_snapshot():
+    """
+    Returns full ledger state for control plane / API / Telegram UI
+    """
+    conn = sqlite3.connect(DB_PATH)
     cur = conn.cursor()
 
     cur.execute("""
-        SELECT account_id,
-               SUM(CASE WHEN type='credit' THEN amount ELSE 0 END),
-               SUM(CASE WHEN type='debit' THEN amount ELSE 0 END)
-        FROM entries
-        GROUP BY account_id
+        SELECT account_id, balance
+        FROM accounts
     """)
-
     rows = cur.fetchall()
 
-    balances = {}
+    cur.execute("""
+        SELECT COUNT(*) FROM ledger_events
+    """)
+    event_count = cur.fetchone()[0]
 
-    for account_id, credits, debits in rows:
-        balances[account_id] = money(credits) - money(debits)
+    total = sum(r[1] for r in rows)
 
-    return balances
-
-
-def main():
-    conn = sqlite3.connect(DB)
-    cur = conn.cursor()
-
-    balances = compute_balances(conn)
-
-    cur.execute("SELECT id, user_id FROM accounts")
-    accounts = cur.fetchall()
-
-    print("\n" + "═" * 80)
-    print("🏦 OMEGA EVENT-SOURCED LEDGER VIEW")
-    print("═" * 80)
-
-    total = 0.0
-
-    for acc_id, user in accounts:
-        bal = balances.get(user, 0.0)
-        total += bal
-
-        print("\n┌──────────────────────────────────────────────┐")
-        print(f"│ ACCOUNT : {user}")
-        print(f"│ ID      : {acc_id}")
-        print(f"│ BALANCE : ${bal:,.2f} USD")
-        print("└──────────────────────────────────────────────┘")
-
-    print("\n" + "═" * 80)
-    print(f"💰 SYSTEM TOTAL (EVENT SOURCED): ${total:,.2f} USD")
-    print("═" * 80)
-
-    conn.close()
+    return {
+        "accounts": [
+            {"account_id": r[0], "balance": float(r[1])}
+            for r in rows
+        ],
+        "total_balance": float(total),
+        "event_count": int(event_count)
+    }
 
 
-if __name__ == "__main__":
-    main()
+# (optional compatibility alias if other modules expect it)
+def run():
+    return get_ledger_snapshot()
