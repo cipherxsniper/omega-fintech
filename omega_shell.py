@@ -1,59 +1,110 @@
-from core.identity import Identity
-from database.db import SessionLocal
-from sqlalchemy import text
+#!/usr/bin/env python3
 
-identity = Identity()
+import sys
+import sqlite3
+from omega_db_registry import get_db
 
-def setup():
-    print("\n=== OMEGA BANK SETUP ===")
+DB = get_db("ledger")
+conn = sqlite3.connect(DB)
 
-    name = input("Enter name: ")
-    pin = input("Create 4-digit PIN: ")
-    confirm = input("Confirm PIN: ")
+# ----------------------------
+# LEDGER CORE
+# ----------------------------
 
-    if pin != confirm:
-        print("PIN mismatch")
-        return setup()
+def get_balance():
+    rows = conn.execute("""
+        SELECT type, amount FROM ledger_events
+    """).fetchall()
 
-    profile = identity.create(name, pin)
+    balance = 0.0
 
-    print("\nAccount created")
-    print("User ID:", profile["user_id"])
+    for r in rows:
+        event_type = r[0]
+        amount = r[1]
 
-def login():
-    pin = input("Enter PIN: ")
+        if event_type in ("CREDIT", "INCOME"):
+            balance += amount
+        else:
+            balance -= amount
 
-    if not identity.verify_pin(pin):
-        print("Access denied")
-        return False
-
-    return True
-
-def dashboard():
-
-    db = SessionLocal()
-
-    while True:
-
-        print("\n=== OMEGA BANK ===")
-        print("1. View Balance")
-        print("2. Exit")
-
-        choice = input("> ")
-
-        if choice == "1":
-
-            wallets = db.execute(text("SELECT * FROM wallets")).fetchall()
-
-            for w in wallets:
-                print(w)
-
-        if choice == "2":
-            break
+    print(f"💰 BALANCE: {balance:.2f}")
 
 
-if not identity.exists():
-    setup()
+def tail_ledger(n=10):
+    rows = conn.execute("""
+        SELECT id, type, amount, tx_id, timestamp
+        FROM ledger_events
+        ORDER BY timestamp DESC
+        LIMIT ?
+    """, (n,)).fetchall()
 
-if login():
-    dashboard()
+    for r in rows:
+        print(r)
+
+
+def list_accounts():
+    try:
+        rows = conn.execute("SELECT * FROM accounts").fetchall()
+        for r in rows:
+            print(r)
+    except Exception as e:
+        print("[WARN] accounts table missing:", e)
+
+
+def stripe_sync():
+    print("[OMEGA] Stripe sync placeholder (test mode only)")
+    print("No live calls executed in this shell version.")
+
+
+def simulate_tx(amount):
+    conn.execute("""
+        INSERT INTO ledger_events(type, counterparty, amount, tx_id, timestamp)
+        VALUES ('SIMULATED', 'OMEGA_SHELL', ?, 'TX-SIM', strftime('%s','now'))
+    """, (amount,))
+    conn.commit()
+    print(f"[OK] Simulated TX: {amount}")
+
+
+# ----------------------------
+# ROUTER
+# ----------------------------
+
+def main():
+    if len(sys.argv) < 2:
+        print("""
+OMEGA FINANCIAL SHELL v1
+
+Commands:
+  balance
+  ledger tail
+  accounts
+  stripe sync
+  tx simulate <amount>
+""")
+        return
+
+    cmd = sys.argv[1]
+
+    if cmd == "balance":
+        get_balance()
+
+    elif cmd == "ledger":
+        if len(sys.argv) > 2 and sys.argv[2] == "tail":
+            tail_ledger()
+
+    elif cmd == "accounts":
+        list_accounts()
+
+    elif cmd == "stripe":
+        stripe_sync()
+
+    elif cmd == "tx":
+        if len(sys.argv) > 3 and sys.argv[2] == "simulate":
+            simulate_tx(float(sys.argv[3]))
+
+    else:
+        print("Unknown command:", cmd)
+
+
+if __name__ == "__main__":
+    main()
