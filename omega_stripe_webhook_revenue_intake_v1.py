@@ -22,4 +22,30 @@ def process_stripe_event(payload):
     finally:
         conn.close()
 
+from omega_stripe_identity_binding_v1 
 
+import normalize_subscription_payload
+
+data = normalize_subscription_payload(session, event)
+
+conn.execute("""
+INSERT OR REPLACE INTO subscriptions (
+    subscription_id,
+    customer_id,
+    status,
+    price_id,
+    current_period_start,
+    current_period_end,
+    cancel_at_period_end,
+    created_at
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+""", (
+    data["subscription_id"],
+    data["customer_id"],
+    data["status"],
+    data["price_id"],
+    data["current_period_start"],
+    data["current_period_end"],
+    data["cancel_at_period_end"],
+    data["created_at"]
+))
